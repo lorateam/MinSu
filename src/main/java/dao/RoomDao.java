@@ -54,7 +54,7 @@ public class RoomDao
         }
     }
 
-    public void delete(int id)
+    public void delete(long id)
     {
         try(Connection c=DBUtil.getConnection();Statement s=c.createStatement();)
         {
@@ -87,7 +87,7 @@ public class RoomDao
         }
     }
 
-    public Room get(int id)
+    public Room get(long id)
     {
         Room bean=new Room();
         try(Connection c=DBUtil.getConnection();Statement s=c.createStatement();)
@@ -98,7 +98,7 @@ public class RoomDao
             {
                 long hotel=rs.getLong("hotel");
                 String status=rs.getString("status");
-                double price=rs.getInt("price");
+                double price=rs.getDouble("price");
                 String description=rs.getString("description");
                 String parking_set=rs.getString("parking_set");
                 String wifi=rs.getString("wifi");

@@ -48,7 +48,7 @@ public class SellerDao
         }
     }
 
-    public void delete(int id)
+    public void delete(long id)
     {
         try(Connection c=DBUtil.getConnection();Statement s=c.createStatement();)
         {
@@ -78,7 +78,7 @@ public class SellerDao
         }
     }
 
-    public Seller get(int id)
+    public Seller get(long id)
     {
         Seller bean=new Seller();
         try(Connection c=DBUtil.getConnection();Statement s=c.createStatement();)
