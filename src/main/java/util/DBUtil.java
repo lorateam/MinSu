@@ -2,7 +2,7 @@ package util;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
-import java.sql.SQLException;
+import java.sql.*;
 
 public class DBUtil
 {
@@ -17,7 +17,7 @@ public class DBUtil
     {
         try
         {
-            class.forName("com.mysql.jdbc.Driver");
+            Class.forName("com.mysql.jdbc.Driver");
         }
         catch(ClassNotFoundException e)
         {
@@ -25,10 +25,15 @@ public class DBUtil
         }
     }
 
-    public static Connection getConnection() throws SQLException
+    public static Connection getConnection()
     {
         String url=String.format("jdbc:mysql://%s:%d/%s?characterEncoding=%s",ip,port,database,encoding);
-        return DriverManager.getConnection(url,loginName,password);
+        try{
+            return DriverManager.getConnection(url,loginName,password);
+        }catch(SQLException e){
+            e.getStackTrace();
+        }
+        return null;
     }
 
     public static void main(String[] args) throws SQLException
