@@ -1,15 +1,20 @@
-<script src="axios.min.js"></script>
+<%@page contentType="text/html; UTF-8" language="java" pageEncoding="utf-8" %>
+<script type="text/javascript" src="js/axios.min.js"></script>
 <script>
     const service = axios.create({
-        timeout: 5000,
+        timeout: 5000
     });
-    const restful = (url, data) => {
-        service({
-            url,
+
+
+
+    function restful(url, data){
+        console.log("test");
+        return service({
+            url:url,
             method: 'post',
-            data,
+            data:data,
         });
-    };
+    }
 </script>
 
 <!--

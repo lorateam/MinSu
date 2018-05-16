@@ -8,7 +8,7 @@ public class DBUtil
 {
     static String ip="tx.3cat.top";
     static int port=3306;
-    static String database="root";
+    static String database="minsu";
     static String encoding="UTF-8";
     static String loginName="root";
     static String password="123";
@@ -17,7 +17,7 @@ public class DBUtil
     {
         try
         {
-            Class.forName("com.mysql.jdbc.Driver");
+            Class.forName("com.mysql.cj.jdbc.Driver");
         }
         catch(ClassNotFoundException e)
         {
