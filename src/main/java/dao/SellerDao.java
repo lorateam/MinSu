@@ -7,12 +7,12 @@ import java.sql.*;
 
 public class SellerDao
 {
-    public int getTotal(int id)
+    public int getTotal()
     {
         int total=0;
         try(Connection c= DBUtil.getConnection(); Statement s=c.createStatement();)
         {
-            String sql="select count(*) from seller where id="+id;
+            String sql="select count(*) from seller";
             ResultSet rs=s.executeQuery(sql);
             while(rs.next())
             {
