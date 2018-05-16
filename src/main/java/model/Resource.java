@@ -1,6 +1,6 @@
 package model;
 
-public class resource {
+public class Resource {
     private String name;
     String path;
     String type;
