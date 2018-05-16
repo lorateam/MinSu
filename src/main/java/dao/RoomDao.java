@@ -7,12 +7,12 @@ import java.sql.*;
 
 public class RoomDao
 {
-    public int getTotal(int id)
+    public int getTotal()
     {
         int total=0;
         try(Connection c=DBUtil.getConnection(); Statement s=c.createStatement();)
         {
-            String sql="select count(*) from room where id="+id;
+            String sql="select count(*) from room";
 
             ResultSet rs=s.executeQuery(sql);
             while(rs.next())
@@ -54,7 +54,7 @@ public class RoomDao
         }
     }
 
-    public void delete(int id)
+    public void delete(long id)
     {
         try(Connection c=DBUtil.getConnection();Statement s=c.createStatement();)
         {
@@ -87,7 +87,7 @@ public class RoomDao
         }
     }
 
-    public Room get(int id)
+    public Room get(long id)
     {
         Room bean=new Room();
         try(Connection c=DBUtil.getConnection();Statement s=c.createStatement();)
@@ -98,7 +98,7 @@ public class RoomDao
             {
                 long hotel=rs.getLong("hotel");
                 String status=rs.getString("status");
-                double price=rs.getInt("price");
+                double price=rs.getDouble("price");
                 String description=rs.getString("description");
                 String parking_set=rs.getString("parking_set");
                 String wifi=rs.getString("wifi");

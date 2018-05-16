@@ -18,7 +18,7 @@
 <body>
 <%@include file="model/nav.jsp"%>
 <div class="showInformationDiv">
-    test
+
 </div>
 </body>
 </html>

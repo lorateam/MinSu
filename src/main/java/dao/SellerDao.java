@@ -7,12 +7,12 @@ import java.sql.*;
 
 public class SellerDao
 {
-    public int getTotal(int id)
+    public int getTotal()
     {
         int total=0;
         try(Connection c= DBUtil.getConnection(); Statement s=c.createStatement();)
         {
-            String sql="select count(*) from seller where id="+id;
+            String sql="select count(*) from seller";
             ResultSet rs=s.executeQuery(sql);
             while(rs.next())
             {
@@ -48,7 +48,7 @@ public class SellerDao
         }
     }
 
-    public void delete(int id)
+    public void delete(long id)
     {
         try(Connection c=DBUtil.getConnection();Statement s=c.createStatement();)
         {
@@ -78,7 +78,7 @@ public class SellerDao
         }
     }
 
-    public Seller get(int id)
+    public Seller get(long id)
     {
         Seller bean=new Seller();
         try(Connection c=DBUtil.getConnection();Statement s=c.createStatement();)
