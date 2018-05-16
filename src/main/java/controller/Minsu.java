@@ -14,6 +14,6 @@ public class Minsu extends HttpServlet{
         String url = request.getPathInfo();
         String[] urls = url.split("/");
         Map<String, String[]> data = request.getParameterMap();
-        
+
     }
 }

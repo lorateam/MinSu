@@ -4,7 +4,7 @@ public class Room {
     private long id;
     private long hotel;
     private String status;
-    private int price;
+    private double price;
     private String description;
     private String parking_set;
     private String wifi;
@@ -33,11 +33,11 @@ public class Room {
         this.status = status;
     }
 
-    public int getPrice() {
+    public double getPrice() {
         return price;
     }
 
-    public void setPrice(int price) {
+    public void setPrice(double price) {
         this.price = price;
     }
 
