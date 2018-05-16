@@ -5,11 +5,11 @@
 <web-app>
   <display-name>Archetype Created Web Application</display-name>
   <servlet>
-    <servlet-name>Minsu</servlet-name>
-    <servlet-class>controller.Minsu</servlet-class>
+    <servlet-name>GoTrip</servlet-name>
+    <servlet-class>controller.Gotrip</servlet-class>
   </servlet>
   <servlet-mapping>
-    <servlet-name>Minsu</servlet-name>
+    <servlet-name>GoTrip</servlet-name>
     <url-pattern>/GoTrip</url-pattern>
   </servlet-mapping>
 </web-app>

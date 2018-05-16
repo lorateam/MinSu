@@ -6,6 +6,13 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<div class=>
-    <div style="float: left;width: 300px;height:300px">test</div>
+<div class="showSellerInfor">
+    <div class="showSellerImg">
+    </div>
+    <div class="showSellerName">
+    </div>
+    <div class="showSellerPrice">
+    </div>
+    <div class="showSellerLocation">
+    </div>
 </div>
