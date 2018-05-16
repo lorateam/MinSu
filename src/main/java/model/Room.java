@@ -1,18 +1,27 @@
 package model;
 
 public class Room {
-    int hotel;
-    String status;
-    int price;
-    String description;
-    String parking_set;
-    String wifi;
+    private long id;
+    private long hotel;
+    private String status;
+    private int price;
+    private String description;
+    private String parking_set;
+    private String wifi;
 
-    public int getHotel() {
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
+
+    public long getHotel() {
         return hotel;
     }
 
-    public void setHotel(int hotel) {
+    public void setHotel(long hotel) {
         this.hotel = hotel;
     }
 
