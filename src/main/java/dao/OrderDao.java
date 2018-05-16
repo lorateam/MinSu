@@ -12,4 +12,6 @@ public class OrderDao{
                 order.getSeller(),order.getCustomer(),order.getMoney());
         s.execute(sql);
     }
+
+
 }

@@ -7,6 +7,24 @@ public class Order {
     String time;//订单创建时间
     String status_pay;//订单状态
     String status_handle;//卖家是否有处理此订单
+    String sellerName;
+    String customerName;
+
+    public String getSellerName() {
+        return sellerName;
+    }
+
+    public void setSellerName(String sellerName) {
+        this.sellerName = sellerName;
+    }
+
+    public String getCustomerName() {
+        return customerName;
+    }
+
+    public void setCustomerName(String customerName) {
+        this.customerName = customerName;
+    }
 
     public int getSeller() {
         return seller;
