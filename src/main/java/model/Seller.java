@@ -1,6 +1,6 @@
 package model;
 
-public class seller {
+public class Seller {
     private String wechat;
     private String id_card;
 

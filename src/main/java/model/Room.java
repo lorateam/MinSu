@@ -1,6 +1,6 @@
 package model;
 
-public class room {
+public class Room {
     int hotel;
     String status;
     int price;

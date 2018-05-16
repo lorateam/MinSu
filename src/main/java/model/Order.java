@@ -1,6 +1,6 @@
 package model;
 
-public class order {
+public class Order {
     private int seller;
     private int customer;
     private float money;
