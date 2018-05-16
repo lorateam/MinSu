@@ -19,12 +19,13 @@ public class RoomDao
             {
                 total = rs.getInt(1);
             }
-            catch(SQLException e)
-            {
-                e.printStackTrace();
-            }
-            return total;
+
         }
+        catch(SQLException e)
+        {
+            e.printStackTrace();
+        }
+        return total;
     }
 
     public void add(Room bean)
@@ -43,13 +44,13 @@ public class RoomDao
             ResultSet rs=ps.getGeneratedKeys();
             if(rs.next())
             {
-                int id=rs.getInt(1);
-                bean.getId(id);
+                long id=rs.getInt(1);
+                bean.setId(id);
             }
-            catch(SQLException e)
-            {
-                e.printStackTrace();
-            }
+        }
+        catch(SQLException e)
+        {
+            e.printStackTrace();
         }
     }
 
@@ -58,7 +59,7 @@ public class RoomDao
         try(Connection c=DBUtil.getConnection();Statement s=c.createStatement();)
         {
             String sql="delete from room where id="+id;
-            s.execute();
+            s.execute(sql);
         }
         catch(SQLException e)
         {
@@ -116,5 +117,4 @@ public class RoomDao
         }
         return bean;
     }
-
 }
