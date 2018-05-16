@@ -1,34 +1,44 @@
 package model;
 
 public class Order {
-    private int seller;
-    private int customer;
-    private float money;
-    String time;//订单创建时间
-    String status_pay;//订单状态
-    String status_handle;//卖家是否有处理此订单
+    private long id;
+    private long seller;
+    private long customer;
+    private double money;
+    private String time;//订单创建时间
+    private String status_pay;//订单状态
+    private String status_handle;//卖家是否有处理此订单
 
-    public int getSeller() {
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
+
+    public long getSeller() {
         return seller;
     }
 
-    public void setSeller(int seller) {
+    public void setSeller(long seller) {
         this.seller = seller;
     }
 
-    public int getCustomer() {
+    public long getCustomer() {
         return customer;
     }
 
-    public void setCustomer(int customer) {
+    public void setCustomer(long customer) {
         this.customer = customer;
     }
 
-    public float getMoney() {
+    public double getMoney() {
         return money;
     }
 
-    public void setMoney(float money) {
+    public void setMoney(double money) {
         this.money = money;
     }
 

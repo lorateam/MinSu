@@ -1,9 +1,27 @@
 package model;
 
 public class Hotel {
+    private long id;
     private String name;
+    private long seller;
     private String location;
-    private  String description;
+    private String description;
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
+
+    public long getSeller() {
+        return seller;
+    }
+
+    public void setSeller(long seller) {
+        this.seller = seller;
+    }
 
     public String getName() {
         return name;
