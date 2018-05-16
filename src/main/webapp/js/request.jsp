@@ -20,6 +20,9 @@
 <!--
 调用方式
 restful('login', data).then(show);
+restful('login', data).then(() => {
+
+});
 
 回调函数
 function show(res）{
