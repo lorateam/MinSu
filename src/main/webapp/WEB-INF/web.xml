@@ -4,4 +4,12 @@
 
 <web-app>
   <display-name>Archetype Created Web Application</display-name>
+  <servlet>
+    <servlet-name>Minsu</servlet-name>
+    <servlet-class>controller.Minsu</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Minsu</servlet-name>
+    <url-pattern>/GoTrip</url-pattern>
+  </servlet-mapping>
 </web-app>
