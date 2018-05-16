@@ -32,7 +32,7 @@ public class RoomDao
         String sql="insert into room values(null,?,?,?,?,?,?)";
         try(Connection c=DBUtil.getConnection(); PreparedStatement ps=c.prepareStatement(sql);)
         {
-            ps.setLong(,beam.get);
+            ps.setLong(1,bean.get);
         }
     }
 

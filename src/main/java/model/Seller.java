@@ -1,8 +1,17 @@
 package model;
 
 public class Seller {
+    private long id;
     private String wechat;
     private String id_card;
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
 
     public String getWechat() {
         return wechat;
