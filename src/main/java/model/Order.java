@@ -4,10 +4,11 @@ public class Order {
     private long id;
     private long seller;
     private long customer;
-    private float money;
+    private double money;
     private String time;//订单创建时间
     private String status_pay;//订单状态
     private String status_handle;//卖家是否有处理此订单
+
 
     public long getId() {
         return id;
@@ -33,11 +34,11 @@ public class Order {
         this.customer = customer;
     }
 
-    public float getMoney() {
+    public double getMoney() {
         return money;
     }
 
-    public void setMoney(float money) {
+    public void setMoney(double money) {
         this.money = money;
     }
 
