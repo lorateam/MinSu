@@ -8,7 +8,7 @@ public class OrderDao{
     private Connection c = DBUtil.getConnection();
     public void InsertOrder(Order order) throws Exception{
         Statement s = c.createStatement();
-        String sql = String.format("insert into order(seller, customer, money) value",
+        String sql = String.format("insert into order(seller, customer, money) values(%d,%d,%f)",
                 order.getSeller(),order.getCustomer(),order.getMoney());
         s.execute(sql);
     }
