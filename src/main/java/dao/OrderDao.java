@@ -15,9 +15,7 @@ public class OrderDao{
 
     public Order getOrder(String column, String value) throws Exception{
         Statement s = c.createStatement();
-        if(column.equals("id")){
-            String sql = String.format("select * from order where id = %ld",id);
-        }
+        String sql = String.format("select * from order where %s = %s",column, value);
         ResultSet rs = s.executeQuery(sql);
         Order order = new Order();
         while(rs.next()){

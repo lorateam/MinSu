@@ -1,5 +1,7 @@
 package model;
 
+import org.json.JSONObject;
+
 public class Order {
     private long id;
     private long seller;
@@ -9,6 +11,16 @@ public class Order {
     private String status_pay;//订单状态
     private String status_handle;//卖家是否有处理此订单
 
+    public JSONObject toJSON(){
+        JSONObject json = new JSONObject();
+        json.append("id",id);
+        json.append("seller", seller);
+        json.append("money",money);
+        json.append("time",time);
+        json.append("status_pay",status_pay);
+        json.append("status_handle",status_handle);
+        return json;
+    }
 
     public long getId() {
         return id;

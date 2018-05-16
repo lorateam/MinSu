@@ -12,12 +12,12 @@ public class Execute {
     private OrderDao orderDao = new OrderDao();
     JSONObject execute(String action, HttpServletRequest request) throws Exception{
         //{action : "getOrder", column : "id", value : "576"}
-        if(action == null || action.equals("")){
-            return null;
-        }else if(action.equals("getOrder")){
+        if(action.equals("getOrder")){
             Order order = orderDao.getOrder((String)request.getAttribute("column"), (String)request.getAttribute("value"));
-            Map map = new HashMap();
-            map.put(order.toJSON());
+            return order.toJSON();
+        }else if(action.equals("...")){
+            //......
         }
+        return null;
     }
 }
