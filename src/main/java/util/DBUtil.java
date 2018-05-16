@@ -2,7 +2,7 @@ package util;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
-import java.sql.SQLException;
+import java.sql.*;
 
 public class DBUtil
 {
@@ -17,7 +17,7 @@ public class DBUtil
     {
         try
         {
-            class.forName("com.mysql.jdbc.Driver");
+            Class.forName("com.mysql.jdbc.Driver");
         }
         catch(ClassNotFoundException e)
         {
