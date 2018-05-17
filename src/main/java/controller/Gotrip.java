@@ -17,13 +17,19 @@ public class Gotrip extends HttpServlet{
     public void doPost(HttpServletRequest request, HttpServletResponse response){
         System.out.println("处理post请求");
         String actionName = (String)request.getParameter("action");
-        Enumeration enu=request.getParameterNames();
         //将request数据解析到Map
+        Enumeration enu=request.getParameterNames();
         Map data = new HashMap();
         while(enu.hasMoreElements()){
             String paraName=(String)enu.nextElement();
             data.put(paraName, request.getParameter(paraName));
         }
+//        while (iter.hasNext()) {
+//            Map.Entry entry = (Map.Entry) iter.next();
+//            Object key = entry.getKey();
+//            Object val = entry.getValue();
+//            System.out.println((String)key + (String)val);
+//        }
         Execute executor = new Execute();
         try
         {

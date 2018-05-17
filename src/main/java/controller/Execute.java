@@ -17,12 +17,7 @@ public class Execute {
             if(action.equals("getOrder")){
                 //查询订单{action : "getOrder", column : "id", value : "576"}
                 Iterator iter = data.entrySet().iterator();
-                while (iter.hasNext()) {
-                    Map.Entry entry = (Map.Entry) iter.next();
-                    Object key = entry.getKey();
-                    Object val = entry.getValue();
-                    System.out.println((String)key + (String)val);
-                }
+
                 Order order = orderDao.getOrder((String)data.get("column"), (String)data.get("value"));
                 return order.toJSON();
             }else if(action.equals("addOrder")){
