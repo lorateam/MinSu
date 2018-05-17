@@ -5,6 +5,7 @@ import dao.RoomDao;
 import dao.SellerDao;
 import dao.UserDao;
 import model.Seller;
+import util.Page;
 
 public abstract class BaseBackServlet extends HttpServlet
 {
@@ -43,9 +44,9 @@ public abstract class BaseBackServlet extends HttpServlet
             }
             Page page=new Page(start,count);
         }
-        catch ()
+        catch (Exception e)
         {
-
+            e.printStackTrace();
         }
     }
 }

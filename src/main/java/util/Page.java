@@ -46,13 +46,21 @@ public class Page
     public int getLast()
     {
         int last;
-
+        if(0==total%count)
+            last=total-count;
+        else
+            last=total-count;
+        last=last<0?0:last;
+        return last;
     }
     public boolean isHasNext()
     {
         if(start==getLast())
         {
-
+            return false;
         }
+        return true;
     }
+
+
 }
