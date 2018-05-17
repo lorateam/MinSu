@@ -126,14 +126,14 @@ public class RoomDao
 
     public List<Room> list()
     {
-        return list(0,short.MAX_VALUE);
+        return list(0,Short.MAX_VALUE);
     }
 
     public List<Room> list(int start,int count)
     {
         List<Room> beans=new ArrayList<Room>();
         String sql="select * from room order by od desc limit ?,?";
-        try(Connection c=DBUtil.getConnection();PreparedStatement ps=c.prepareStatement();)
+        try(Connection c=DBUtil.getConnection();PreparedStatement ps=c.prepareStatement(sql);)
         {
             ps.setInt(1,start);
             ps.setInt(2,count);

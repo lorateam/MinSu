@@ -61,14 +61,14 @@ public class RoomServlet extends BaseBackServlet
 
     public String delete(HttpServletRequest request,HttpServletResponse response,Page page)
     {
-        int id=Integer.parseInt(request.getParameter("id"));
+        long id=Integer.parseInt(request.getParameter("id"));
         RoomDao.delete(id);
         return "@admin_room_list";
     }
 
     public String edit(HttpServletRequest request,HttpServletResponse response,Page page)
     {
-        int id=Integer.parseInt(request.getParameter("id"));
+        long id=Integer.parseInt(request.getParameter("id"));
         Room r=RoomDao.get(id);
         request.setAttribute("r",r);
         return "page/admin/editRoom.jsp"
@@ -79,7 +79,7 @@ public class RoomServlet extends BaseBackServlet
         Map<String,String> params=new HashMap<>();
         InputStream is=super.parseUpload(request,params);
         String room_type=params.get("room_type");
-        int id=Integer.parseInt(params.get("id"));
+        long id=Integer.parseInt(params.get("id"));
 
         Room r=new Room();
         r.setId(id);
@@ -121,14 +121,13 @@ public class RoomServlet extends BaseBackServlet
 
     public String list(HttpServletRequest request,HttpServletResponse response,Page page)
     {
-        List<Room> rs=roomDao.list(getStart(),page.getCount());
+        List<Room> rs=roomDao.list(page.getStart(),page.getCount());
+        int total=roomDao.getTotal();
+        page.setTotal(total);
+        request.setAttribute("thers",rs);
+        request.setAttribute("page",page);
+        return "admin/listRoom.jsp";
 
     }
-    protected void doPost(javax.servlet.http.HttpServletRequest request, javax.servlet.http.HttpServletResponse response) throws javax.servlet.ServletException, IOException {
 
-    }
-
-    protected void doGet(javax.servlet.http.HttpServletRequest request, javax.servlet.http.HttpServletResponse response) throws javax.servlet.ServletException, IOException {
-
-    }
 }
