@@ -15,7 +15,7 @@ public class Execute {
     JSONObject execute(String action, Map data) throws Exception{
         try{
             if(action.equals("getOrder")){
-                //{action : "getOrder", column : "id", value : "576"}
+                //查询订单{action : "getOrder", column : "id", value : "576"}
                 Iterator iter = data.entrySet().iterator();
                 while (iter.hasNext()) {
                     Map.Entry entry = (Map.Entry) iter.next();
@@ -26,6 +26,7 @@ public class Execute {
                 Order order = orderDao.getOrder((String)data.get("column"), (String)data.get("value"));
                 return order.toJSON();
             }else if(action.equals("addOrder")){
+                ///添加订单 {action:addOrder, seller: 456, customer:123, money:555}
                 Order order = new Order();
                 order.setSeller((int)data.get("seller"));
                 order.setCustomer((int)data.get("customer"));
@@ -34,18 +35,20 @@ public class Execute {
                 m_json.append("status", "success");
                 return m_json;
             }else if(action.equals("updateOrder")){
-                orderDao.updateOrder((String)data.get("arrive_date"), (String)data.get("leave_time"),(double)data.get("money"));
+                //修改订单 {action: updateOrder, arrive_date:2018-05-26, leave_time:2018-05-28, money:45}
+                orderDao.updateOrder((String)data.get("arrive_date"), (String)data.get("leave_time"),(double)data.get("money"), (long)data.get("id"));
                 m_json.append("status", "success");
                 return m_json;
             }else if(action.equals("deleteOrder")){
+                //删除订单{action: deleteOrder, id : 1}
                 orderDao.deleteOrder((long)data.get("id"));
             }
+            m_json.append("status","没有对应action");
+            return m_json;
         }catch (Exception e){
             e.printStackTrace();
-            m_json.append("status","error_acton");
+            m_json.append("status","执行"+ action + "失败");
             return m_json;
         }
-
-        return null;
     }
 }
