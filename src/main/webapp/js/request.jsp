@@ -1,28 +1,6 @@
-<script src="axios.min.js"></script>
 <script>
-    const service = axios.create({
-        timeout: 5000,
+     data = { action : 'getOrder', column : 'id', value : '1' };
+    $.post("/minsu", data, function (res) {
+        console.log(res);
     });
-    const restful = (url, data) => {
-        service({
-            url,
-            method: 'post',
-            data,
-        });
-    };
 </script>
-
-<!--
-调用方式
-restful('login', data).then(show);
-restful('login', data).then(() => {
-
-});
-
-回调函数
-function show(res）{
-     return res.data;
-}
--->
-
-
