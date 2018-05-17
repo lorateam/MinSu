@@ -18,7 +18,12 @@
 <body>
 <%@include file="model/nav.jsp"%>
 <div class="chooseInfor">
-
+    <button id="fat-btn" class="btn btn-primary" data-loading-text="Loading..."
+            type="button"> 已发布房源
+    </button>
+    <button id="someRoomRent" class="btn btn-primary" data-loading-text="Loading..."
+            type="button"> 已租房间
+    </button>
 </div>
 <div class="showInformationDiv">
     <div>
