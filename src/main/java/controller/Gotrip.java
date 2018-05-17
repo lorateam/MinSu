@@ -18,6 +18,7 @@ public class Gotrip extends HttpServlet{
         System.out.println("处理post请求");
         String actionName = (String)request.getParameter("action");
         Enumeration enu=request.getParameterNames();
+        //将request数据解析到Map
         Map data = new HashMap();
         while(enu.hasMoreElements()){
             String paraName=(String)enu.nextElement();
@@ -27,6 +28,7 @@ public class Gotrip extends HttpServlet{
         try
         {
             PrintWriter out = response.getWriter();
+            //执行对应action
             JSONObject json = executor.execute(actionName, data);
             out.print(json);
             out.flush();

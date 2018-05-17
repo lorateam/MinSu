@@ -32,8 +32,8 @@ public class OrderDao{
         return order;
     }
 
-    public void updateOrder(String arrive_date, String leave_time, double money) throws Exception{
-        String sql = String.format("update order set arrive_date=%s, leave_time=%s, money=%f", arrive_date,leave_time,money);
+    public void updateOrder(String arrive_date, String leave_time, double money, long id) throws Exception{
+        String sql = String.format("update order set arrive_date=%s, leave_time=%s, money=%f where id = %d", arrive_date,leave_time,money, id);
         Statement s = c.createStatement();
         s.execute(sql);
     }
