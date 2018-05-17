@@ -74,7 +74,7 @@ public class RoomServlet extends BaseBackServlet
         long id=Integer.parseInt(request.getParameter("id"));
         Room r=RoomDao.get(id);
         request.setAttribute("r",r);
-        return "page/admin/editRoom.jsp"
+        return "page/admin/editRoom.jsp";
     }
 
     public String update(HttpServletRequest request,HttpServletResponse response,Page page)

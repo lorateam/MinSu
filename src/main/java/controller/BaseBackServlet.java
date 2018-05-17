@@ -30,7 +30,7 @@ public abstract class BaseBackServlet extends HttpServlet
     protected SellerDao sellerDao=new SellerDao();
     protected UserDao userDao=new UserDao();
 
-    public void service(HttpservletRequest request,HttpServletResponse response)
+    public void service(HttpServletRequest request,HttpServletResponse response)
     {
         try
         {
