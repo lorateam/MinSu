@@ -13,6 +13,9 @@ import java.lang.reflect.Method;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 public abstract class BaseBackServlet extends HttpServlet
 {
@@ -54,7 +57,7 @@ public abstract class BaseBackServlet extends HttpServlet
             //借助反射，调用相应的方法
             String method=(String)request.getAttribute("method");
             Method m=this.getClass().getMethod(method,javax.servlet.http.HttpServletRequest.class,javax.servlet.http.HttpServletResponse.class,Page.class);
-            String redirect=m.invoke(this,reqeust,response,page).toString();
+            String redirect=m.invoke(this,request,response,page).toString();
 
             //根据方法的反射值，进行相应的客户端跳转，服务器跳转，或者其他输出字符串操作
             if(redirect.startsWith("@"))

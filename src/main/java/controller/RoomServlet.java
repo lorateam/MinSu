@@ -16,6 +16,9 @@ import java.io.InputStream;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 @javax.servlet.annotation.WebServlet(name = "RoomServlet")
 public class RoomServlet extends BaseBackServlet
