@@ -13,6 +13,15 @@
     <servlet-name>gotrip</servlet-name>
     <url-pattern>/minsu</url-pattern>
   </servlet-mapping>
+
+  <servlet>
+    <servlet-name>RoomServlet</servlet-name>
+    <servlet-class>controller.RoomServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>RoomServlet</servlet-name>
+    <url-pattern>/RoomServlet</url-pattern>
+  </servlet-mapping>
   <filter>
     <filter-name>BackServletFilter</filter-name>
     <filter-class>filter.BackServletFilter</filter-class>
