@@ -4,6 +4,8 @@ import model.Room;
 import util.DBUtil;
 
 import java.sql.*;
+import java.util.ArrayList;
+import java.util.List;
 
 public class RoomDao
 {
@@ -39,7 +41,7 @@ public class RoomDao
             ps.setString(4,bean.getDescription());
             ps.setString(5,bean.getParking_set());
             ps.setString(6,bean.getWifi());
-            ps.setString(9,bean.getRoom_type());
+            ps.setString(7,bean.getRoom_type());
             ps.execute();
 
             ResultSet rs=ps.getGeneratedKeys();
@@ -79,7 +81,7 @@ public class RoomDao
             ps.setString(4,bean.getDescription());
             ps.setString(5,bean.getParking_set());
             ps.setString(6,bean.getWifi());
-            ps.setString(7.bean.getRoom_type());
+            ps.setString(7,bean.getRoom_type());
             ps.setLong(8,bean.getId());
             ps.execute();
         }
@@ -120,5 +122,38 @@ public class RoomDao
             e.printStackTrace();
         }
         return bean;
+    }
+
+    public List<Room> list()
+    {
+        return list(0,short.MAX_VALUE);
+    }
+
+    public List<Room> list(int start,int count)
+    {
+        List<Room> beans=new ArrayList<Room>();
+        String sql="select * from room order by od desc limit ?,?";
+        try(Connection c=DBUtil.getConnection();PreparedStatement ps=c.prepareStatement();)
+        {
+            ps.setInt(1,start);
+            ps.setInt(2,count);
+
+            ResultSet rs=ps.executeQuery();
+
+            while(rs.next())
+            {
+                Room bean=new Room();
+                int id=rs.getInt(1);
+                String room_type=rs.getString(2);
+                bean.setId(id);
+                bean.setRoom_type(room_type);
+                beans.add(bean);
+            }
+        }
+        catch(SQLException e)
+        {
+            e.printStackTrace();
+        }
+        return beans;
     }
 }
