@@ -20,7 +20,7 @@
                     </a>
                     <ul class="dropdown-menu">
                         <li><a href="../page/rentHouse.jsp" style="font-size: 25px">发布</a></li>
-                        <li><a href="../myRoom.jsp" style="font-size: 25px">体验</a></li>
+                        <li><a href="../page/experienceRoom.jsp" style="font-size: 25px">体验</a></li>
                     </ul>
                 </li>
                 <li><a href="#">故事</a></li>
