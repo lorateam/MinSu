@@ -8,8 +8,18 @@ public class Room {
     private String description;
     private String parking_set;
     private String wifi;
+    private String room_type;
+
+    public String getRoom_type() {
+        return room_type;
+    }
+
+    public void setRoom_type(String room_type) {
+        this.room_type = room_type;
+    }
 
     public long getId() {
+
         return id;
     }
 

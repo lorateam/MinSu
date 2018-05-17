@@ -30,7 +30,7 @@ public class RoomDao
 
     public void add(Room bean)
     {
-        String sql="insert into room values(null,?,?,?,?,?,?)";
+        String sql="insert into room values(null,?,?,?,?,?,?,?)";
         try(Connection c=DBUtil.getConnection(); PreparedStatement ps=c.prepareStatement(sql);)
         {
             ps.setLong(1,bean.getHotel());
@@ -39,6 +39,7 @@ public class RoomDao
             ps.setString(4,bean.getDescription());
             ps.setString(5,bean.getParking_set());
             ps.setString(6,bean.getWifi());
+            ps.setString(9,bean.getRoom_type());
             ps.execute();
 
             ResultSet rs=ps.getGeneratedKeys();
@@ -69,7 +70,7 @@ public class RoomDao
 
     public void update(Room bean)
     {
-        String sql="update room set hotel=?,status=?,price=?,description=?,parking_set=?,wifi=? where id=?";
+        String sql="update room set hotel=?,status=?,price=?,description=?,parking_set=?,wifi=?,room_type=? where id=?";
         try(Connection c=DBUtil.getConnection();PreparedStatement ps=c.prepareStatement(sql);)
         {
             ps.setLong(1,bean.getHotel());
@@ -78,7 +79,8 @@ public class RoomDao
             ps.setString(4,bean.getDescription());
             ps.setString(5,bean.getParking_set());
             ps.setString(6,bean.getWifi());
-            ps.setLong(7,bean.getId());
+            ps.setString(7.bean.getRoom_type());
+            ps.setLong(8,bean.getId());
             ps.execute();
         }
         catch(SQLException e)
@@ -102,6 +104,7 @@ public class RoomDao
                 String description=rs.getString("description");
                 String parking_set=rs.getString("parking_set");
                 String wifi=rs.getString("wifi");
+                String room_type=rs.getString("room_type");
 
                 bean.setHotel(hotel);
                 bean.setStatus(status);
@@ -109,6 +112,7 @@ public class RoomDao
                 bean.setDescription(description);
                 bean.setParking_set(parking_set);
                 bean.setWifi(wifi);
+                bean.setRoom_type(room_type);
             }
         }
         catch(SQLException e)
