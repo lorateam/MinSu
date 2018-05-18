@@ -73,6 +73,12 @@
       <version>RELEASE</version>
     </dependency>
 
+    <dependency>
+      <groupId>standard</groupId>
+      <artifactId>standard</artifactId>
+      <version>RELEASE</version>
+    </dependency>
+
       <!-- https://mvnrepository.com/artifact/org.json/json -->
     <dependency>
       <groupId>org.json</groupId>
