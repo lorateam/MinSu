@@ -24,15 +24,9 @@ public class Gotrip extends HttpServlet{
             String paraName=(String)enu.nextElement();
             data.put(paraName, request.getParameter(paraName));
         }
-//        while (iter.hasNext()) {
-//            Map.Entry entry = (Map.Entry) iter.next();
-//            Object key = entry.getKey();
-//            Object val = entry.getValue();
-//            System.out.println((String)key + (String)val);
-//        }
-        Execute executor = new Execute();
         try
         {
+            Execute executor = new Execute();
             PrintWriter out = response.getWriter();
             //执行对应action
             System.out.println(data);

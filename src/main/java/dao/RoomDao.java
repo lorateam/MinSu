@@ -71,6 +71,8 @@ public class RoomDao
         catch(SQLException e)
         {
             e.printStackTrace();
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 
@@ -91,6 +93,8 @@ public class RoomDao
         }
         catch(SQLException e)
         {
+            e.printStackTrace();
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
@@ -124,6 +128,8 @@ public class RoomDao
         catch(SQLException e)
         {
             e.printStackTrace();
+        } catch (Exception e) {
+            e.printStackTrace();
         }
         return bean;
     }
@@ -156,6 +162,8 @@ public class RoomDao
         }
         catch(SQLException e)
         {
+            e.printStackTrace();
+        } catch (Exception e) {
             e.printStackTrace();
         }
         return beans;

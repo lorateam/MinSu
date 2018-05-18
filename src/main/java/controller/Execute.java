@@ -12,6 +12,10 @@ import java.util.Map;
 public class Execute {
     private OrderDao orderDao = new OrderDao();
     private JSONObject m_json = new JSONObject();
+
+    public Execute() throws Exception {
+    }
+
     JSONObject execute(String action, Map data) throws Exception{
         try{
             if(action.equals("getOrder")){
@@ -27,6 +31,8 @@ public class Execute {
                 order.setCustomer(Integer.parseInt(data.get("customer").toString()));
                 order.setMoney(Integer.parseInt(data.get("money").toString()));
                 //TODO:应该添加到店时间和离店时间
+                order.setArrive_date(data.get("arrive_date").toString());
+                order.setLeave_date(data.get("leave_date").toString());
                 orderDao.InsertOrder(order);
                 m_json.append("status", "success");
                 return m_json;
