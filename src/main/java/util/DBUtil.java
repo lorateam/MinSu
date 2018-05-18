@@ -13,30 +13,26 @@ public class DBUtil
     static String loginName="root";
     static String password="123";
 
-    static
-    {
-        try
-        {
+    static {
+        try {
             Class.forName("com.mysql.cj.jdbc.Driver");
-        }
-        catch(ClassNotFoundException e)
-        {
+        } catch(ClassNotFoundException e) {
             e.printStackTrace();
         }
     }
 
-    public static Connection getConnection()
+    public static Connection getConnection() throws Exception
     {
         String url=String.format("jdbc:mysql://%s:%d/%s?characterEncoding=%s",ip,port,database,encoding);
-        try{
-            return DriverManager.getConnection(url,loginName,password);
-        }catch(SQLException e){
-            e.getStackTrace();
-        }
-        return null;
+        return DriverManager.getConnection(url,loginName,password);
     }
 
-    public static void main(String[] args) throws SQLException
+    public static Statement getStatement()throws Exception{
+        Statement s = getConnection().createStatement();
+        return s;
+    }
+
+    public static void main(String[] args) throws Exception
     {
         System.out.println(getConnection());
     }
