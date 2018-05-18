@@ -3,39 +3,48 @@
  "http://java.sun.com/dtd/web-app_2_3.dtd" >
 
 <web-app>
-  <display-name>Archetype Created Web Application</display-name>
-  <servlet>
-    <servlet-name>gotrip</servlet-name>
-    <servlet-class>controller.Gotrip</servlet-class>
-  </servlet>
-  
-  <servlet-mapping>
-    <servlet-name>gotrip</servlet-name>
-    <url-pattern>/gotrip</url-pattern>
-  </servlet-mapping>
-  <!--配置测试sevlet-->
-  <servlet>
-    <servlet-name>test</servlet-name>
-    <servlet-class>controller.ServletTest</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>test</servlet-name>
-    <url-pattern>/test</url-pattern>
-  </servlet-mapping>
+  <!--<display-name>Archetype Created Web Application</display-name>-->
   <!--<servlet>-->
-    <!--<servlet-name>RoomServlet</servlet-name>-->
-    <!--<servlet-class>controller.RoomServlet</servlet-class>-->
+    <!--<servlet-name>gotrip</servlet-name>-->
+    <!--<servlet-class>controller.Gotrip</servlet-class>-->
+  <!--</servlet>-->
+  <!---->
+  <!--<servlet-mapping>-->
+    <!--<servlet-name>gotrip</servlet-name>-->
+    <!--<url-pattern>/gotrip</url-pattern>-->
+  <!--</servlet-mapping>-->
+  <!--&lt;!&ndash;配置测试sevlet&ndash;&gt;-->
+  <!--<servlet>-->
+    <!--<servlet-name>test</servlet-name>-->
+    <!--<servlet-class>controller.ServletTest</servlet-class>-->
   <!--</servlet>-->
   <!--<servlet-mapping>-->
-    <!--<servlet-name>RoomServlet</servlet-name>-->
-    <!--<url-pattern>/RoomServlet</url-pattern>-->
+    <!--<servlet-name>test</servlet-name>-->
+    <!--<url-pattern>/test</url-pattern>-->
   <!--</servlet-mapping>-->
-  <!--<filter>-->
-    <!--<filter-name>BackServletFilter</filter-name>-->
-    <!--<filter-class>filter.BackServletFilter</filter-class>-->
-  <!--</filter>-->
-  <!--<filter-mapping>-->
-    <!--<filter-name>BackServletFilter</filter-name>-->
-    <!--<url-pattern>/*</url-pattern>-->
-  <!--</filter-mapping>-->
+  <servlet>
+    <servlet-name>RoomServlet</servlet-name>
+    <servlet-class>controller.RoomServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>RoomServlet</servlet-name>
+    <url-pattern>/roomServlet</url-pattern>
+  </servlet-mapping>
+  <filter>
+    <filter-name>BackServletFilter</filter-name>
+    <filter-class>filter.BackServletFilter</filter-class>
+  </filter>
+  <filter-mapping>
+    <filter-name>BackServletFilter</filter-name>
+    <url-pattern>/*</url-pattern>
+  </filter-mapping>
+  <filter>
+    <filter-name>EncodingFilter</filter-name>
+    <filter-class>filter.EncodingFilter</filter-class>
+  </filter>
+
+  <filter-mapping>
+    <filter-name>EncodingFilter</filter-name>
+    <url-pattern>/*</url-pattern>
+  </filter-mapping>
 </web-app>
