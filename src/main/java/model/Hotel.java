@@ -1,6 +1,6 @@
 package model;
 
-public class Hotel {
+public class Hotel extends BaseModel{
     private long id;
     private String name;
     private long seller;

@@ -1,7 +1,5 @@
 package filter;
 /*
-
-
 import org.apache.commons.lang.StringUtils;
 import java.io.IOException;
 import javax.servlet.*;
@@ -32,9 +30,6 @@ public class BackServletFilter implements Filter {
             req.getRequestDispatcher("/"+servletPath).forward(request,response);
             return;
         }
-
-
-
         chain.doFilter(request, response);
     }
 

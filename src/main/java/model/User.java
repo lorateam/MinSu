@@ -1,6 +1,6 @@
 package model;
 
-public class User {
+public class User extends BaseModel{
     private long id;
     private String account;
     private String password;
