@@ -9,8 +9,9 @@ public class OrderDao{
 
     public void InsertOrder(Order order) throws Exception{
         Statement s = c.createStatement();
-        String sql = String.format("insert into order(seller, customer, money) values(%d,%d,%f)",
+        String sql = String.format("INSERT INTO `order`(seller, customer, money)  values(%d,%d,%f);",
                 order.getSeller(),order.getCustomer(),order.getMoney());
+        System.out.println(sql);
         s.execute(sql);
     }
 

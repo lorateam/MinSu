@@ -23,9 +23,10 @@ public class Execute {
             }else if(action.equals("addOrder")){
                 ///添加订单 {action:addOrder, seller: 456, customer:123, money:555}
                 Order order = new Order();
-                order.setSeller((int)data.get("seller"));
-                order.setCustomer((int)data.get("customer"));
-                order.setMoney((int)data.get("money"));
+                order.setSeller(Integer.parseInt(data.get("seller").toString()));
+                order.setCustomer(Integer.parseInt(data.get("customer").toString()));
+                order.setMoney(Integer.parseInt(data.get("money").toString()));
+                //TODO:应该添加到店时间和离店时间
                 orderDao.InsertOrder(order);
                 m_json.append("status", "success");
                 return m_json;

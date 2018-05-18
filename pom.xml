@@ -64,8 +64,21 @@
       <version>2.4</version>
     </dependency>
 
+<<<<<<< HEAD
+    <dependency>
+      <groupId>org.apache.commons</groupId>
+      <artifactId>commons-lang</artifactId>
+      <version>RELEASE</version>
+    </dependency>
+    <dependency>
+      <groupId>commons-fileupload</groupId>
+      <artifactId>commons-fileupload</artifactId>
+      <version>RELEASE</version>
+    </dependency>
+=======
 
     <!-- https://mvnrepository.com/artifact/commons-lang/commons-lang -->
+>>>>>>> 6df20d5d1fe0a9cf765867b14a7d5e7c132e26b4
     <dependency>
       <groupId>commons-lang</groupId>
       <artifactId>commons-lang</artifactId>
