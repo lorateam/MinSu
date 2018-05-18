@@ -21,7 +21,7 @@
         发布房源
     </div>
     <div class="bodyInfo">
-        <form class="form-horizontal" role="form">
+        <form class="form-horizontal" role="form" action="" method="post">
             <div class="form-group">
                 <label for="firstname" class="col-sm-2 control-label">民宿名称</label>
                 <div class="col-sm-10">
