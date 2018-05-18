@@ -31,7 +31,7 @@ public abstract class BaseBackServlet extends HttpServlet
     public abstract String update(HttpServletRequest request,HttpServletResponse response,Page page);
     public abstract String list(HttpServletRequest request,HttpServletResponse response,Page page);
 
-//    protected OrderDao orderDao=new OrderDao();
+    protected OrderDao orderDao=new OrderDao();
     protected RoomDao roomDao=new RoomDao();
     protected SellerDao sellerDao=new SellerDao();
     protected UserDao userDao=new UserDao();
