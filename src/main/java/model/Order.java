@@ -1,35 +1,37 @@
 package model;
 
-import org.json.JSONObject;
 
 import java.lang.reflect.Field;
+import java.math.BigDecimal;
+import java.sql.Date;
+import java.sql.Time;
 
 public class Order extends BaseModel{
     private long id;
     private long seller;
     private long customer;
-    private double money;
-    private String time;//订单创建时间
-    private String arrive_date;
-    private String leav_date;
+    private BigDecimal money;
+    private Time time;//订单创建时间
+    private Date arrive_date;
+    private Date leav_date;
     private String status_pay;//订单状态
     private String status_handle;//卖家是否有处理此订单
 
 
 
-    public String getArrive_date() {
+    public Date getArrive_date() {
         return arrive_date;
     }
 
-    public void setArrive_date(String arrive_date) {
+    public void setArrive_date(Date arrive_date) {
         this.arrive_date = arrive_date;
     }
 
-    public String getLeave_date() {
+    public Date getLeave_date() {
         return leav_date;
     }
 
-    public void setLeave_date(String leav_date) {
+    public void setLeave_date(Date leav_date) {
         this.leav_date = leav_date;
     }
 
@@ -57,19 +59,19 @@ public class Order extends BaseModel{
         this.customer = customer;
     }
 
-    public double getMoney() {
+    public BigDecimal getMoney() {
         return money;
     }
 
-    public void setMoney(double money) {
+    public void setMoney(BigDecimal money) {
         this.money = money;
     }
 
-    public String getTime() {
+    public Time getTime() {
         return time;
     }
 
-    public void setTime(String time) {
+    public void setTime(Time time) {
         this.time = time;
     }
 

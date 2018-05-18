@@ -14,14 +14,14 @@
     <url-pattern>/gotrip</url-pattern>
   </servlet-mapping>
   <!--配置测试sevlet-->
-  <servlet>
-    <servlet-name>test</servlet-name>
-    <servlet-class>controller.ServletTest</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>test</servlet-name>
-    <url-pattern>/test</url-pattern>
-  </servlet-mapping>
+  <!--<servlet>-->
+    <!--<servlet-name>test</servlet-name>-->
+    <!--<servlet-class>controller.ServletTest</servlet-class>-->
+  <!--</servlet>-->
+  <!--<servlet-mapping>-->
+    <!--<servlet-name>test</servlet-name>-->
+    <!--<url-pattern>/test</url-pattern>-->
+  <!--</servlet-mapping>-->
   <!--<servlet>-->
     <!--<servlet-name>RoomServlet</servlet-name>-->
     <!--<servlet-class>controller.RoomServlet</servlet-class>-->

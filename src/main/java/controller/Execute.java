@@ -1,20 +1,23 @@
 package controller;
 
+import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONArray;
+import com.alibaba.fastjson.JSONObject;
+import com.mysql.cj.xdevapi.JsonArray;
 import dao.OrderDao;
 import model.Order;
-import org.json.JSONObject;
 
 import javax.servlet.http.HttpServletRequest;
+import java.math.BigDecimal;
+import java.sql.Date;
 import java.util.HashMap;
 import java.util.Iterator;
+import java.util.List;
 import java.util.Map;
 
 public class Execute {
     private OrderDao orderDao = new OrderDao();
     private JSONObject m_json = new JSONObject();
-
-    public Execute() throws Exception {
-    }
 
     JSONObject execute(String action, Map data) throws Exception{
         try{
@@ -29,27 +32,32 @@ public class Execute {
                 Order order = new Order();
                 order.setSeller(Integer.parseInt(data.get("seller").toString()));
                 order.setCustomer(Integer.parseInt(data.get("customer").toString()));
-                order.setMoney(Integer.parseInt(data.get("money").toString()));
+                order.setMoney(BigDecimal.valueOf(Double.parseDouble(data.get("money").toString())));
                 //TODO:应该添加到店时间和离店时间
-                order.setArrive_date(data.get("arrive_date").toString());
-                order.setLeave_date(data.get("leave_date").toString());
+                order.setArrive_date(Date.valueOf(data.get("arrive_date").toString()));
+                order.setLeave_date(Date.valueOf(data.get("leave_date").toString()));
                 orderDao.InsertOrder(order);
-                m_json.append("status", "success");
+                m_json.put("status", "success");
                 return m_json;
             }else if(action.equals("updateOrder")){
                 //修改订单 {action: updateOrder, arrive_date:2018-05-26, leave_time:2018-05-28, money:45}
                 orderDao.updateOrder((String)data.get("arrive_date"), (String)data.get("leave_time"),(double)data.get("money"), (long)data.get("id"));
-                m_json.append("status", "success");
+                m_json.put("status", "success");
                 return m_json;
             }else if(action.equals("deleteOrder")){
                 //删除订单{action: deleteOrder, id : 1}
                 orderDao.deleteOrder((long)data.get("id"));
+            }else if(action.equals("listOrder")){
+                List<JSONObject> orders = orderDao.listOrder();
+                JSONArray jsons = (JSONArray) JSON.toJSON(orders);
+                m_json.put("orders", jsons);
+                return m_json;
             }
-            m_json.append("status","没有对应action");
+            m_json.put("status","没有对应action");
             return m_json;
         }catch (Exception e){
             e.printStackTrace();
-            m_json.append("status","执行"+ action + "失败");
+            m_json.put("status","执行"+ action + "失败");
             return m_json;
         }
     }

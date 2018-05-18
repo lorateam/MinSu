@@ -1,8 +1,13 @@
 package util;
 
+import model.BaseModel;
+import model.Order;
+
+import java.lang.reflect.Field;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.*;
+import java.util.List;
 
 /**
  * 链接数据库的工具类
@@ -45,8 +50,37 @@ public class DBUtil {
         return null;
     }
 
+    public static <T> T parseResultSet(ResultSet rs, T object) {
+        try {
+            ResultSetMetaData sm = rs.getMetaData();
+            int colNumber = sm.getColumnCount();
 
-    public static void main(String[] args) throws Exception{
+            Class clazz = Class.forName(object.getClass().getName());
+            Field[] fields = clazz.getDeclaredFields();
+
+            //取出每一个字段进行赋值
+            for(int i=1;i<=colNumber;i++){
+                Object value = rs.getObject(i);
+                //匹配实体类中对应的属性
+                for(int j = 0;j<fields.length;j++){
+                    Field f = fields[j];
+                    if(f.getName().equals(sm.getColumnName(i))){
+                        boolean flag = f.isAccessible();
+                        f.setAccessible(true);
+                        f.set(object, value);
+                        f.setAccessible(flag);
+                        break;
+                    }
+                }
+            }
+            return object;
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    public static void main(String[] args) throws Exception {
         System.out.println(getConnection());
     }
 }
