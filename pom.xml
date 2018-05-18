@@ -65,7 +65,6 @@
       <version>2.4</version>
     </dependency>
 
-    <!-- https://mvnrepository.com/artifact/com.alibaba/fastjson -->
     <dependency>
       <groupId>com.alibaba</groupId>
       <artifactId>fastjson</artifactId>

@@ -137,7 +137,7 @@
 //        page.setTotal(total);
 //        request.setAttribute("thers",rs);   //房屋集
 //        request.setAttribute("page",page);
-//        return "admin/listRoom.jsp";
+//        return "page/admin/listRoom.jsp";
 //
 //    }
 //
