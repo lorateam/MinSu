@@ -43,14 +43,7 @@
                            placeholder="">
                 </div>
             </div>
-            <div class="form-group">
-                <label for="lastname" class="col-sm-2 control-label">具体描述</label>
-                <div class="col-sm-10">
-                    <input type="text" class="form-control" id="email"
-                           placeholder="">
-                </div>
-            </div>
-            <button type="submit" class="btn btn-primary btn-lg" style="float: right;">修改信息</button>
+            <button type="submit" class="btn btn-primary btn-lg" style="float: right;">发布房源</button>
         </form>
     </div>
 </div>
