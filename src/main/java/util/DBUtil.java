@@ -4,6 +4,9 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.*;
 
+/**
+ * 链接数据库的工具类
+ */
 public class DBUtil
 {
     static String ip="tx.3cat.top";

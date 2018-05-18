@@ -1,5 +1,8 @@
 package util;
 
+/**
+ * 关于翻页操作的工具类
+ */
 public class Page
 {
     int start;
@@ -54,6 +57,7 @@ public class Page
             return false;
         return true;
     }
+    //获得最后页
     public int getLast()
     {
         int last;
@@ -64,6 +68,7 @@ public class Page
         last=last<0?0:last;
         return last;
     }
+    //是否有一页
     public boolean isHasNext()
     {
         if(start==getLast())
@@ -72,6 +77,7 @@ public class Page
         }
         return true;
     }
+    //得到总页数
     public int getTotalPage()
     {
         int totalPage;

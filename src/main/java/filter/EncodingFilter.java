@@ -7,6 +7,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
+/**
+ * 单独抽出来解决字符问题
+ */
 @WebFilter(filterName = "EncodingFilter")
 public class EncodingFilter implements Filter {
     public void destroy() {
