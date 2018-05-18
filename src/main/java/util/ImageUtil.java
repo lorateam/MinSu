@@ -4,6 +4,10 @@ import java.awt.*;
 import java.awt.image.*;
 import java.io.File;
 
+/**
+ * 图片操作工具,因为我很多拼接是+".jpg"
+ * 所以有一个转换为jpg操作，方便统一
+ */
 public class ImageUtil
 {
     public static BufferedImage chageToJpg(File f)

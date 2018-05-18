@@ -1,5 +1,4 @@
 package controller;
-/*
 import dao.OrderDao;
 import dao.RoomDao;
 import dao.OrderDao;
@@ -7,6 +6,9 @@ import dao.RoomDao;
 import dao.SellerDao;
 import dao.UserDao;
 import model.Seller;
+import org.apache.commons.fileupload.FileItem;
+import org.apache.commons.fileupload.disk.DiskFileItemFactory;
+import org.apache.commons.fileupload.servlet.ServletFileUpload;
 import util.Page;
 import java.io.InputStream;
 import java.lang.reflect.Method;
@@ -16,7 +18,11 @@ import java.util.Map;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
+    /*
+        这个是个servlet抽象出来的基类
+        增删改查编辑的接口
+        在操作时不用再去new 对象了
+    */
 public abstract class BaseBackServlet extends HttpServlet
 {
     public abstract String add(HttpServletRequest request,HttpServletResponse response,Page page);
@@ -34,6 +40,7 @@ public abstract class BaseBackServlet extends HttpServlet
     {
         try
         {
+
             int start=0;
             int count=5;
             try
@@ -59,7 +66,7 @@ public abstract class BaseBackServlet extends HttpServlet
             Method m=this.getClass().getMethod(method,javax.servlet.http.HttpServletRequest.class,javax.servlet.http.HttpServletResponse.class,Page.class);
             String redirect=m.invoke(this,request,response,page).toString();
 
-            //根据方法的反射值，进行相应的客户端跳转，服务器跳转，或者其他输出字符串操作
+            //根据方法的反射值，进行相应的客户端跳转"头部是@"，服务器跳转"头部是%"，或者其他输出字符串操作
             if(redirect.startsWith("@"))
                 response.sendRedirect(redirect.substring(1));
             else if(redirect.startsWith("%"))
@@ -77,11 +84,12 @@ public abstract class BaseBackServlet extends HttpServlet
 
     public InputStream parseUpload(HttpServletRequest request,Map<String,String> params)
     {
+          //这是上传图片的函数，因为我们的房源各种需要图片上传
         InputStream is=null;
         try
         {
             DiskFileItemFactory factory=new DiskFileItemFactory();
-            ServletFileUpload=new ServletFileUpload(factory);
+            ServletFileUpload upload=new ServletFileUpload(factory);
 
             factory.setSizeThreshold(1024*1024*10);
 
@@ -110,4 +118,3 @@ public abstract class BaseBackServlet extends HttpServlet
         return is;
     }
 }
-*/

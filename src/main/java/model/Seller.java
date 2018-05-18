@@ -1,6 +1,6 @@
 package model;
 
-public class Seller {
+public class Seller extends BaseModel{
     private long id;
     private String wechat;
     private String id_card;

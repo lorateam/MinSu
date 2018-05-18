@@ -1,6 +1,6 @@
 package model;
 
-public class Room {
+public class Room extends BaseModel{
     private long id;
     private long hotel;
     private String status;

@@ -1,5 +1,5 @@
 package controller;
-/*
+
 import dao.RoomDao;
 import jdk.internal.util.xml.impl.Input;
 import model.Room;
@@ -21,8 +21,13 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 @javax.servlet.annotation.WebServlet(name = "RoomServlet")
-public class RoomServlet extends BaseBackServlet
+ //关于房源操作的servlet
+ public class RoomServlet extends BaseBackServlet
 {
+      //增加房源操作
+      //其中room_type是海景房，标间之类的描述
+      //返回的是@admin_room_list，利用反射调用room的list()，显示出房源列表
+      //此处我就只写了添加room_type和上传图片，更多的信息再set即可
     public String add(HttpServletRequest request, HttpServletResponse response, Page page)
     {
         Map<String,String> params=new HashMap<>();
@@ -31,7 +36,7 @@ public class RoomServlet extends BaseBackServlet
         Room r=new Room();
         r.setRoom_type(room_type);
 
-        File imageFolder=new File(request.getSession().getServletContext().getRealPath("img/room"))
+        File imageFolder=new File(request.getSession().getServletContext().getRealPath("img/room"));
         File file=new File(imageFolder,r.getId()+".jpg");
         try
         {
@@ -61,22 +66,25 @@ public class RoomServlet extends BaseBackServlet
         }
         return "@admin_room_list";
     }
-
+          //删除操作
+          //返回的是@admin_room_list，利用反射调用room的list()
     public String delete(HttpServletRequest request,HttpServletResponse response,Page page)
     {
         long id=Integer.parseInt(request.getParameter("id"));
-        RoomDao.delete(id);
+        roomDao.delete(id);
         return "@admin_room_list";
     }
-
+          //编辑操作
+          //跳转编辑页面
     public String edit(HttpServletRequest request,HttpServletResponse response,Page page)
     {
         long id=Integer.parseInt(request.getParameter("id"));
-        Room r=RoomDao.get(id);
+        Room r=roomDao.get(id);
         request.setAttribute("r",r);
         return "page/admin/editRoom.jsp";
     }
-
+          //修改更新
+          //操作差不多，跳转到list显示页面
     public String update(HttpServletRequest request,HttpServletResponse response,Page page)
     {
         Map<String,String> params=new HashMap<>();
@@ -95,7 +103,7 @@ public class RoomServlet extends BaseBackServlet
 
         try
         {
-            if(null!=is&&0!=available())
+            if(null!=is&&0!=is.available())
             {
                 try(FileOutputStream fos=new FileOutputStream(file))
                 {
@@ -121,17 +129,16 @@ public class RoomServlet extends BaseBackServlet
         }
         return "@admin_room_list";
     }
-
+      //根据页面显示
     public String list(HttpServletRequest request,HttpServletResponse response,Page page)
     {
         List<Room> rs=roomDao.list(page.getStart(),page.getCount());
         int total=roomDao.getTotal();
         page.setTotal(total);
-        request.setAttribute("thers",rs);
+        request.setAttribute("thers",rs);   //房屋集
         request.setAttribute("page",page);
         return "admin/listRoom.jsp";
 
     }
 
 }
-*/

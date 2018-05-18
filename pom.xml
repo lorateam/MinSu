@@ -35,6 +35,12 @@
       <scope>provided</scope>
     </dependency>
 
+    <dependency>
+      <groupId>commons-fileupload</groupId>
+      <artifactId>commons-fileupload</artifactId>
+      <version>RELEASE</version>
+    </dependency>
+
     <!-- https://mvnrepository.com/artifact/mysql/mysql-connector-java -->
     <dependency>
       <groupId>mysql</groupId>
@@ -49,6 +55,35 @@
       <version>1.7.25</version>
     </dependency>
 
+    <dependency>
+      <groupId>commons-io</groupId>
+      <artifactId>commons-io</artifactId>
+      <version>RELEASE</version>
+    </dependency>
+
+    <dependency>
+      <groupId>org.apache.commons</groupId>
+      <artifactId>commons-lang</artifactId>
+      <version>3.0</version>
+    </dependency>
+
+    <dependency>
+      <groupId>jstl</groupId>
+      <artifactId>jstl</artifactId>
+      <version>RELEASE</version>
+    </dependency>
+
+    <dependency>
+      <groupId>standard</groupId>
+      <artifactId>standard</artifactId>
+      <version>RELEASE</version>
+    </dependency>
+
+    <dependency>
+      <groupId>commons-lang</groupId>
+      <artifactId>commons-lang</artifactId>
+      <version>RELEASE</version>
+    </dependency>
       <!-- https://mvnrepository.com/artifact/org.json/json -->
     <dependency>
       <groupId>org.json</groupId>
