@@ -1,4 +1,14 @@
 package filter;
+/**
+ *  过滤器BackServletFilter进行拦截，判断访问的地址是否以/admin_开头
+ *  如果是，那么做如下操作
+ *  取出两个下划线之间的值 room
+ *  取出最后一个下划线之后的值 list
+ *  然后根据这个值，服务端跳转到roomServlet，并且把list这个值传递过去
+ *  roomServlet 继承了BaseBackServlet，其service方法会被调用。 在service中，借助反射技术，根据传递过来的值 list，调用对应roomServlet 中的方法lis
+ *  如果访问的路径是admin_room_delete，就会调用roomServlet.delete()方法
+ */
+
 /*
 import org.apache.commons.lang.StringUtils;
 import java.io.IOException;
