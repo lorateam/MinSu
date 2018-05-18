@@ -25,13 +25,8 @@
     </div>
     <div class="bodyInfo">
         <form class="form-horizontal" role="form" action="/gotrip" method="post">
-            <div class="form-group">
-                <label for="action" class="col-sm-2 control-label">动作名称</label>
-                <div class="col-sm-10">
-                    <input type="text" class="form-control" id="action" name="action"
-                           placeholder="">
-                </div>
-            </div>
+            <input class="form-control" id="action" name="action" value="addOrder" type="hidden"
+                   placeholder="">
             <div class="form-group">
                 <label for="seller" class="col-sm-2 control-label">卖家ID</label>
                 <div class="col-sm-10">
@@ -53,24 +48,24 @@
                            placeholder="">
                 </div>
             </div>
-            <%--<div class="form-group">--%>
-                <%--<label for="arrive_date" class="col-sm-2 control-label">到店时间</label>--%>
-                <%--<div class='input-group date' id='datetimepicker1'>--%>
-                    <%--<input type='text' class="form-control" id="arrive_date"/>--%>
-                    <%--<span class="input-group-addon">--%>
-                    <%--<span class="glyphicon glyphicon-calendar"></span>--%>
-                <%--</span>--%>
-                <%--</div>--%>
-            <%--</div>--%>
-            <%--<div class="form-group">--%>
-                <%--<label for="leave_date" class="col-sm-2 control-label">离店时间</label>--%>
-                <%--<div class='input-group date' id='datetimepicker2'>--%>
-                    <%--<input type='text' class="form-control" id="leave_date"/>--%>
-                    <%--<span class="input-group-addon">--%>
-                    <%--<span class="glyphicon glyphicon-calendar"></span>--%>
-                <%--</span>--%>
-                <%--</div>--%>
-            <%--</div>--%>
+            <div class="form-group">
+                <label for="arrive_date" class="col-sm-2 control-label">到店时间</label>
+                <div class='input-group date' id='datetimepicker1'>
+                    <input type='text' class="form-control" id="arrive_date" name="arrive_date"/>
+                    <span class="input-group-addon">
+                    <span class="glyphicon glyphicon-calendar"></span>
+                </span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="leave_date" class="col-sm-2 control-label">离店时间</label>
+                <div class='input-group date' id='datetimepicker2'>
+                    <input type='text' class="form-control" id="leave_date" name="leave_date"/>
+                    <span class="input-group-addon">
+                    <span class="glyphicon glyphicon-calendar"></span>
+                </span>
+                </div>
+            </div>
             <button type="submit" class="btn btn-primary btn-lg" style="float: right;">下订单</button>
         </form>
     </div>

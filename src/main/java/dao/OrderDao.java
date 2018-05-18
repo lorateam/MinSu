@@ -5,18 +5,20 @@ import java.sql.*;
 import model.Order;
 
 public class OrderDao{
-    private Connection c = DBUtil.getConnection();
+    private Statement s = DBUtil.getStatement();
+
+    public OrderDao() throws Exception {
+    }
 
     public void InsertOrder(Order order) throws Exception{
-        Statement s = c.createStatement();
-        String sql = String.format("INSERT INTO `order`(seller, customer, money)  values(%d,%d,%f);",
-                order.getSeller(),order.getCustomer(),order.getMoney());
+        
+        String sql = String.format("INSERT INTO `order`(seller, customer, money, arrive_date, leave_date)  values(%d,%d,%f,'%s','%s');",
+                order.getSeller(),order.getCustomer(),order.getMoney(),order.getArrive_date(),order.getLeave_date());
         System.out.println(sql);
         s.execute(sql);
     }
 
     public Order getOrder(String column, String value) throws Exception{
-        Statement s = c.createStatement();
         String sql = String.format("select * from `order` where %s=%s;",column, value);
         System.out.println(sql);
         ResultSet rs = s.executeQuery(sql);
@@ -35,13 +37,12 @@ public class OrderDao{
 
     public void updateOrder(String arrive_date, String leave_time, double money, long id) throws Exception{
         String sql = String.format("update order set arrive_date=%s, leave_time=%s, money=%f where id = %d", arrive_date,leave_time,money, id);
-        Statement s = c.createStatement();
+        
         s.execute(sql);
     }
 
     public void deleteOrder(long id) throws Exception {
         String sql = String.format("delete from order where id = %d", id);
-        Statement s = c.createStatement();
         s.execute(sql);
     }
 }

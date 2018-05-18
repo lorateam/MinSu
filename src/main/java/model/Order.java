@@ -25,11 +25,11 @@ public class Order extends BaseModel{
         this.arrive_date = arrive_date;
     }
 
-    public String getLeav_date() {
+    public String getLeave_date() {
         return leav_date;
     }
 
-    public void setLeav_date(String leav_date) {
+    public void setLeave_date(String leav_date) {
         this.leav_date = leav_date;
     }
 

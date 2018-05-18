@@ -24,6 +24,8 @@ public class UserDao
         catch(SQLException e)
         {
             e.printStackTrace();
+        } catch (Exception e) {
+            e.printStackTrace();
         }
         return total;
     }
@@ -51,6 +53,8 @@ public class UserDao
         catch(SQLException e)
         {
             e.printStackTrace();
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 
@@ -63,6 +67,8 @@ public class UserDao
         }
         catch(SQLException e)
         {
+            e.printStackTrace();
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
@@ -83,6 +89,8 @@ public class UserDao
         }
         catch (SQLException e)
         {
+            e.printStackTrace();
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
@@ -113,6 +121,8 @@ public class UserDao
         }
         catch (SQLException e)
         {
+            e.printStackTrace();
+        } catch (Exception e) {
             e.printStackTrace();
         }
         return bean;
