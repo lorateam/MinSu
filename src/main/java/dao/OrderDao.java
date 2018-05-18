@@ -7,6 +7,9 @@ import model.Order;
 public class OrderDao{
     private Connection c = DBUtil.getConnection();
 
+    public OrderDao() throws Exception {
+    }
+
     public void InsertOrder(Order order) throws Exception{
         Statement s = c.createStatement();
         String sql = String.format("INSERT INTO `order`(seller, customer, money)  values(%d,%d,%f);",

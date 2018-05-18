@@ -22,6 +22,8 @@ public class SellerDao
         catch(SQLException e)
         {
             e.printStackTrace();
+        } catch (Exception e) {
+            e.printStackTrace();
         }
         return total;
     }
@@ -45,6 +47,8 @@ public class SellerDao
         catch(SQLException e)
         {
             e.printStackTrace();
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 
@@ -57,6 +61,8 @@ public class SellerDao
         }
         catch(SQLException e)
         {
+            e.printStackTrace();
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
@@ -74,6 +80,8 @@ public class SellerDao
         }
         catch(SQLException e)
         {
+            e.printStackTrace();
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
@@ -97,6 +105,8 @@ public class SellerDao
         }
         catch(SQLException e)
         {
+            e.printStackTrace();
+        } catch (Exception e) {
             e.printStackTrace();
         }
         return bean;
