@@ -62,9 +62,9 @@
     </dependency>
 
     <dependency>
-      <groupId>commons-lang</groupId>
+      <groupId>org.apache.commons</groupId>
       <artifactId>commons-lang</artifactId>
-      <version>RELEASE</version>
+      <version>3.0</version>
     </dependency>
 
     <dependency>
@@ -79,6 +79,11 @@
       <version>RELEASE</version>
     </dependency>
 
+    <dependency>
+      <groupId>commons-lang</groupId>
+      <artifactId>commons-lang</artifactId>
+      <version>RELEASE</version>
+    </dependency>
       <!-- https://mvnrepository.com/artifact/org.json/json -->
     <dependency>
       <groupId>org.json</groupId>

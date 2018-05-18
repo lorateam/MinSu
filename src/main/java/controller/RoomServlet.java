@@ -135,7 +135,7 @@ import javax.servlet.http.HttpServletResponse;
         List<Room> rs=roomDao.list(page.getStart(),page.getCount());
         int total=roomDao.getTotal();
         page.setTotal(total);
-        request.setAttribute("thers",rs);
+        request.setAttribute("thers",rs);   //房屋集
         request.setAttribute("page",page);
         return "admin/listRoom.jsp";
 
