@@ -21,6 +21,7 @@ public class OrderDao {
 
         String sql = String.format("INSERT INTO `order`(seller, customer, money, arrive_date, leave_date)  values(%d,%d,%f,'%s','%s');",
                 order.getSeller(), order.getCustomer(), order.getMoney(), order.getArrive_date(), order.getLeave_date());
+
         System.out.println(sql);
         s.execute(sql);
     }
@@ -45,6 +46,7 @@ public class OrderDao {
                     arrive_date, customer, status_pay, id);
         }
         List<JSONObject> jsons = new ArrayList();
+
         Order order = new Order();
         log.println(sql);
         ResultSet rs = s.executeQuery(sql);
