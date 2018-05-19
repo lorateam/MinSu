@@ -56,16 +56,17 @@ public class UserDao
 
     public void update(User bean)
     {
-        String sql="update user set account=?,password=?,name=?,create_time=?,head_image=?,email=? where id=?";
+        //TODO:这里是完全覆盖原有信息，后面需要使用户可以任意修改信息
+//        String sql="update user set account=?,password=?,name=?,head_image=?,email=? where id=?";
+        String sql="update user set account=?,password=?,name=?,email=? where id=?";
         try(Connection c=DBUtil.getConnection();PreparedStatement ps=c.prepareStatement(sql);)
         {
             ps.setString(1,bean.getAccount());
             ps.setString(2,bean.getPassword());
             ps.setString(3,bean.getName());
-            ps.setString(4,bean.getCreate_time());
-            ps.setString(5,bean.getHead_image());
-            ps.setString(6,bean.getEmail());
-            ps.setLong(7,bean.getId());
+//            ps.setString(4,bean.getHead_image());
+            ps.setString(4,bean.getEmail());
+            ps.setLong(5,bean.getId());
             ps.execute();
         }
         catch (SQLException e)
@@ -81,7 +82,7 @@ public class UserDao
         User bean=new User();
         try(Connection c=DBUtil.getConnection();Statement ps=c.createStatement();)
         {
-            String sql="select * from User where id="+id;
+            String sql=" select * from user where id= "+id;
             ResultSet rs= ps.executeQuery(sql);
             if(rs.next())
             {
@@ -89,14 +90,15 @@ public class UserDao
                 String password=rs.getString("password");
                 String name=rs.getString("name");
                 String create_time=rs.getString("create_time");
-                String head_image=rs.getString("head_image");
+                //TODO:未完成头像的显示
+                //String head_image=rs.getString("head_image");
                 String email=rs.getString("email");
 
                 bean.setAccount(account);
                 bean.setPassword(password);
                 bean.setName(name);
                 bean.setCreate_time(create_time);
-                bean.setHead_image(head_image);
+                //bean.setHead_image(head_image);
                 bean.setEmail(email);
             }
         }

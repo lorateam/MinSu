@@ -66,6 +66,27 @@ public class Execute {
                 user.setEmail(data.get("email").toString());
                 userDao.add(user);
                 m_json.put("status","success");
+            }else if(action.equals("showMyInfor")){
+                User user = new User();
+                UserDao userDao = new UserDao();
+                user.setId(Integer.parseInt(data.get("id").toString()));
+                user = userDao.get(user.getId());
+                m_json.put("account", user.getAccount());
+                m_json.put("name", user.getName());
+                m_json.put("email", user.getEmail());
+                return m_json;
+            }else if(action.equals("changeMyInfor")){
+                User user = new User();
+                UserDao userDao = new UserDao();
+                user.setId(Integer.parseInt(data.get("id").toString()));
+                user.setEmail(data.get("email").toString());
+                user.setPassword(data.get("password").toString());
+                user.setName(data.get("name").toString());
+                user.setAccount(data.get("account").toString());
+                System.out.println(user);
+                userDao.update(user);
+                m_json.put("status","success");
+                return m_json;
             }
             m_json.put("status","没有对应action");
             return m_json;

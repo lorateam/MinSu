@@ -33,21 +33,41 @@
             </thead>
             <tbody>
             <tr>
-                <td>account</td>
-                <td>Bangalore</td>
+                <td >账户</td>
+                <td id="account">Bangalore</td>
             </tr>
             <tr>
-                <td>name</td>
-                <td>Mumbai</td>
+                <td >名称</td>
+                <td id="name">Mumbai</td>
             </tr>
             <tr>
-                <td>email</td>
-                <td>Mumbai</td>
+                <td >email</td>
+                <td id="email">Mumbai</td>
             </tr>
             </tbody>
         </table>
-        <button type="button" class="btn btn-primary btn-lg" style="float: right;">修改信息</button>
+        <button type="button" class="btn btn-primary btn-lg" style="float: right;" onclick="window.location.href='changeMyInfor.jsp'">修改信息</button>
     </div>
 </div>
 </body>
+<script>
+    $(document).ready(function(){
+        let formData = new FormData();
+        formData.append("action","showMyInfor");
+        formData.append("id","37");
+        $.ajax({
+            type:"post",
+            url:"/gotrip",
+            data:formData,
+            processData:false,
+            contentType:false,
+            success: function (data) {
+                let json = eval("("+data+")");
+                $("#account").html(json.account);
+                $("#name").html(json.name);
+                $("#email").html(json.email);
+            }
+        })
+    });
+</script>
 </html>

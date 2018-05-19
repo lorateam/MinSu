@@ -76,7 +76,7 @@ public class Gotrip extends HttpServlet{
                 }
                 // 文件
                 else {
-                    /* TODO：文件的抽象，此处仅就图片存储进行了操作
+                    /* TODO：未进行文件的抽象，此处仅就图片存储进行了操作
                      * 获取文件名称 这个文件名称，不能直接使用，因为可能存在同名的图片
                      *
                      * 这个不需要下载图片，因此文件名称可以不要
@@ -109,12 +109,13 @@ public class Gotrip extends HttpServlet{
                     // 将文件保存到服务器中指定的位置
                     item.write(file);
                     // 保存商品的图片路径
+                    //TODO:此处只保存了一个图片imgurl，因此仅适用于头像传输，不适用于多图片上传
                     dataMap.put("imgurl", savePath + dirs + "/" + fileName);
                 }
             }
             //获取前端传来的Action名称
             String actionName = dataMap.get("action");
-            System.out.print(actionName);
+            System.out.print(dataMap);
 
             try{
                 Execute executor = new Execute();
