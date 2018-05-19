@@ -97,12 +97,6 @@
       </dependency>
 
 
-      <!--&lt;!&ndash; https://mvnrepository.com/artifact/org.json/json &ndash;&gt;-->
-    <!--<dependency>-->
-      <!--<groupId>org.json</groupId>-->
-      <!--<artifactId>json</artifactId>-->
-      <!--<version>20160810</version>-->
-    <!--</dependency>-->
   </dependencies>
 
   <build>

@@ -1,19 +1,19 @@
 package model;
 
 
-import java.lang.reflect.Field;
 import java.math.BigDecimal;
 import java.sql.Date;
 import java.sql.Time;
+import java.sql.Timestamp;
 
 public class Order extends BaseModel{
     private long id;
     private long seller;
     private long customer;
     private BigDecimal money;
-    private Time time;//订单创建时间
+    private Timestamp create_time;//订单创建时间
     private Date arrive_date;
-    private Date leav_date;
+    private Date leave_date;
     private String status_pay;//订单状态
     private String status_handle;//卖家是否有处理此订单
 
@@ -27,12 +27,12 @@ public class Order extends BaseModel{
         this.arrive_date = arrive_date;
     }
 
-    public Date getLeave_date() {
-        return leav_date;
+    public String getLeave_date() {
+        return leave_date.toString();
     }
 
     public void setLeave_date(Date leav_date) {
-        this.leav_date = leav_date;
+        this.leave_date = leav_date;
     }
 
     public long getId() {
@@ -67,12 +67,12 @@ public class Order extends BaseModel{
         this.money = money;
     }
 
-    public Time getTime() {
-        return time;
+    public Timestamp getTime() {
+        return create_time;
     }
 
-    public void setTime(Time time) {
-        this.time = time;
+    public void setTime(Timestamp time) {
+        this.create_time = time;
     }
 
     public String getStatus_pay() {

@@ -54,6 +54,7 @@ public class Gotrip extends HttpServlet{
         doPost(request,response);
     }
     public void doPost(HttpServletRequest request, HttpServletResponse response){
+
         //创建一个用生产FileItem(表单中的每一项)的工厂
         FileItemFactory factory = new DiskFileItemFactory();
         // 创建文件上传组件的解析对象
