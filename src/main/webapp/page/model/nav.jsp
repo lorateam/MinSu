@@ -42,6 +42,7 @@
                 <ul class="dropdown-menu">
                 <li><a href="../page/myInformation.jsp" style="font-size: 25px">个人信息</a></li>
                 <li><a href="../page/myRoom.jsp" style="font-size: 25px">MyRoom</a></li>
+                <li><a href="../page/myorder.jsp" style="font-size: 25px">订单</a></li>
                 </ul>
                 </li>
             </ul>

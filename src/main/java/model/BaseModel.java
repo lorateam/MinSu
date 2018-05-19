@@ -1,6 +1,7 @@
 package model;
 
-import org.json.JSONObject;
+import com.alibaba.fastjson.JSONObject;
+
 
 import java.lang.reflect.Field;
 //Mosel抽象类，提供共用方法。
@@ -12,7 +13,8 @@ public abstract class BaseModel {
         Field[] fields = clazz.getDeclaredFields();
         JSONObject json = new JSONObject();
         for(Field f: fields){
-            json.append(f.getName(),f.get(this));
+            f.setAccessible(true);
+            json.put(f.getName(),f.get(this));
         }
         return json;
     }

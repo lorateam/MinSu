@@ -36,6 +36,7 @@
     </dependency>
 
 
+
     <!-- https://mvnrepository.com/artifact/commons-fileupload/commons-fileupload -->
     <dependency>
       <groupId>commons-fileupload</groupId>
@@ -64,21 +65,12 @@
       <version>2.4</version>
     </dependency>
 
-<<<<<<< HEAD
     <dependency>
-      <groupId>org.apache.commons</groupId>
-      <artifactId>commons-lang</artifactId>
-      <version>RELEASE</version>
+      <groupId>com.alibaba</groupId>
+      <artifactId>fastjson</artifactId>
+      <version>1.2.47</version>
     </dependency>
-    <dependency>
-      <groupId>commons-fileupload</groupId>
-      <artifactId>commons-fileupload</artifactId>
-      <version>RELEASE</version>
-    </dependency>
-=======
 
-    <!-- https://mvnrepository.com/artifact/commons-lang/commons-lang -->
->>>>>>> 6df20d5d1fe0a9cf765867b14a7d5e7c132e26b4
     <dependency>
       <groupId>commons-lang</groupId>
       <artifactId>commons-lang</artifactId>
@@ -100,12 +92,12 @@
     </dependency>
 
 
-      <!-- https://mvnrepository.com/artifact/org.json/json -->
-    <dependency>
-      <groupId>org.json</groupId>
-      <artifactId>json</artifactId>
-      <version>20160810</version>
-    </dependency>
+      <!--&lt;!&ndash; https://mvnrepository.com/artifact/org.json/json &ndash;&gt;-->
+    <!--<dependency>-->
+      <!--<groupId>org.json</groupId>-->
+      <!--<artifactId>json</artifactId>-->
+      <!--<version>20160810</version>-->
+    <!--</dependency>-->
   </dependencies>
 
   <build>
