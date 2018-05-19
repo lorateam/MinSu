@@ -15,7 +15,7 @@
     <script src="https://cdn.bootcss.com/moment.js/2.18.1/moment-with-locales.min.js"></script>
     <link href="https://cdn.bootcss.com/bootstrap-datetimepicker/4.17.47/css/bootstrap-datetimepicker.min.css" rel="stylesheet">
     <script src="https://cdn.bootcss.com/bootstrap-datetimepicker/4.17.47/js/bootstrap-datetimepicker.min.js"></script>
-    <link href="../css/myInformation" rel="stylesheet">
+    <link href="../css/myInformation.css" rel="stylesheet">
 </head>
 <body>
 <%@include file="model/nav.jsp"%>

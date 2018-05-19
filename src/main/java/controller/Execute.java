@@ -5,7 +5,9 @@ import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
 import com.mysql.cj.xdevapi.JsonArray;
 import dao.OrderDao;
+import dao.UserDao;
 import model.Order;
+import model.User;
 
 import javax.servlet.http.HttpServletRequest;
 import java.math.BigDecimal;
@@ -18,6 +20,9 @@ import java.util.Map;
 public class Execute {
     private OrderDao orderDao = new OrderDao();
     private JSONObject m_json = new JSONObject();
+
+    public Execute() throws Exception {
+    }
 
     JSONObject execute(String action, Map data) throws Exception{
         try{
@@ -33,7 +38,6 @@ public class Execute {
                 order.setSeller(Integer.parseInt(data.get("seller").toString()));
                 order.setCustomer(Integer.parseInt(data.get("customer").toString()));
                 order.setMoney(BigDecimal.valueOf(Double.parseDouble(data.get("money").toString())));
-                //TODO:应该添加到店时间和离店时间
                 order.setArrive_date(Date.valueOf(data.get("arrive_date").toString()));
                 order.setLeave_date(Date.valueOf(data.get("leave_date").toString()));
                 orderDao.InsertOrder(order);
@@ -52,6 +56,16 @@ public class Execute {
                 JSONArray jsons = (JSONArray) JSON.toJSON(orders);
                 m_json.put("orders", jsons);
                 return m_json;
+            }else if(action.equals("register")){
+                UserDao userDao = new UserDao();
+                User user = new User();
+                user.setHead_image(data.get("imgurl").toString());
+                user.setAccount(data.get("account").toString());
+                user.setName(data.get("name").toString());
+                user.setPassword(data.get("password").toString());
+                user.setEmail(data.get("email").toString());
+                userDao.add(user);
+                m_json.put("status","success");
             }
             m_json.put("status","没有对应action");
             return m_json;

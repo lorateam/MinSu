@@ -25,7 +25,10 @@ import javax.servlet.http.HttpServletResponse;
     */
 public abstract class BaseBackServlet extends HttpServlet
 {
-    public abstract String add(HttpServletRequest request,HttpServletResponse response,Page page);
+    protected BaseBackServlet() throws Exception {
+    }
+
+    public abstract String add(HttpServletRequest request, HttpServletResponse response, Page page);
     public abstract String delete(HttpServletRequest request,HttpServletResponse response,Page page);
     public abstract String edit(HttpServletRequest request,HttpServletResponse response,Page page);
     public abstract String update(HttpServletRequest request,HttpServletResponse response,Page page);

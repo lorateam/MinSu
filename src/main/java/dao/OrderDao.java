@@ -14,23 +14,19 @@ import static jdk.nashorn.internal.runtime.regexp.joni.Config.log;
 
 public class OrderDao{
     private Statement s = DBUtil.getStatement();
-<<<<<<< HEAD
 
     public OrderDao() throws Exception {
     }
-
-=======
->>>>>>> b2c511c11d6054782f2856ece41ec413c2046ae9
     public void InsertOrder(Order order) throws Exception{
         
-        String sql = String.format("INSERT INTO `order`(seller, customer, money, arrive_date, leave_date)  values(%d,%d,%f,'%s','%s');",
+        String sql = String.format("INSERT INTO order(seller, customer, money, arrive_date, leave_date)  values(%d,%d,%f,'%s','%s');",
                 order.getSeller(),order.getCustomer(),order.getMoney(),order.getArrive_date(),order.getLeave_date());
         System.out.println(sql);
         s.execute(sql);
     }
 
     public Order getOrder(String column, String value) throws Exception{
-        String sql = String.format("select * from `order` where %s=%s;",column, value);
+        String sql = String.format("select * from order where %s=%s;",column, value);
         System.out.println(sql);
         ResultSet rs = s.executeQuery(sql);
         Order order = new Order();

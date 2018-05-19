@@ -30,32 +30,13 @@ public class UserDao
         return total;
     }
 
-    public void add(User bean)
+    public void add(User bean)throws Exception
     {
-        String sql="insert into user values(null,?,?,?,?,?,?)";
-        try(Connection c=DBUtil.getConnection(); PreparedStatement ps=c.prepareStatement(sql);)
-        {
-            ps.setString(1,bean.getAccount());
-            ps.setString(2,bean.getPassword());
-            ps.setString(3,bean.getName());
-            ps.setString(4,bean.getCreate_time());
-            ps.setString(5,bean.getHead_image());
-            ps.setString(6,bean.getEmail());
-            ps.execute();
-
-            ResultSet rs=ps.getGeneratedKeys();
-            if(rs.next())
-            {
-                long id=rs.getInt(1);
-                bean.setId(id);
-            }
-        }
-        catch(SQLException e)
-        {
-            e.printStackTrace();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+        Statement s = DBUtil.getStatement();
+            String sql = String.format(" INSERT INTO user(account, password, name, head_image, email) values('%s', '%s', '%s', '%s', '%s');",
+                    bean.getAccount(), bean.getPassword(), bean.getName(), bean.getHead_image(), bean.getEmail());
+            System.out.print(sql);
+            s.execute(sql);
     }
 
     public void delete(long id)

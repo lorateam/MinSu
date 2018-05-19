@@ -90,6 +90,11 @@
       <artifactId>jstl</artifactId>
       <version>1.2</version>
     </dependency>
+      <dependency>
+          <groupId>org.apache.tomcat.embed</groupId>
+          <artifactId>tomcat-embed-core</artifactId>
+          <version>8.5.27</version>
+      </dependency>
 
 
       <!--&lt;!&ndash; https://mvnrepository.com/artifact/org.json/json &ndash;&gt;-->
