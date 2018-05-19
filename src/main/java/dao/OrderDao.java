@@ -10,9 +10,6 @@ public class OrderDao{
     public OrderDao() throws Exception {
     }
 
-    public OrderDao() throws Exception {
-    }
-
     public void InsertOrder(Order order) throws Exception{
         
         String sql = String.format("INSERT INTO `order`(seller, customer, money, arrive_date, leave_date)  values(%d,%d,%f,'%s','%s');",

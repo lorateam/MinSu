@@ -56,7 +56,24 @@
     //     }
     // },1000);
     function register() {
-        document.getElementById("registerForm").submit();
+        var name = document.getElementById("name");
+        var email = document.getElementById("email");
+        var password = document.getElementById("password");
+        var surePassword = document.getElementById("surePassword");
+        if((name !== NULL )&&(email !== NULL)&&(password !== NULL)&&(surePassword != NULL)){
+            if(surePassword === password)
+            {
+                document.getElementById("registerForm").submit();
+            }
+            else
+            {
+                alert("两次密码输入有误");
+            }
+        }
+        else
+        {
+            alert("信息未添加完整");
+        }
     }
 </script>
 </html>
