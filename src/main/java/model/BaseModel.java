@@ -14,10 +14,12 @@ public abstract class BaseModel {
         JSONObject json = new JSONObject();
         for(Field f: fields){
             f.setAccessible(true);
-            json.put(f.getName(),f.get(this));
+            String value = "";
+            if(f.get(this) != null){
+                value = f.get(this).toString();
+            }
+            json.put(f.getName(),value);
         }
         return json;
     }
-
-
 }

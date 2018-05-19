@@ -8,6 +8,5 @@
 </head>
 <body>
 <%@include file="page/model/nav.jsp"%>
-<%@include file="js/request.jsp"%>
 </body>
 </html>

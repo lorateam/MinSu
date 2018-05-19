@@ -21,12 +21,12 @@ public class Execute {
 
     JSONObject execute(String action, Map data) throws Exception{
         try{
-            if(action.equals("getOrder")){
+            if(action.equals("selectOrder")){
                 //查询订单{action : "getOrder", column : "id", value : "576"}
-                Iterator iter = data.entrySet().iterator();
-
-                Order order = orderDao.getOrder((String)data.get("column"), (String)data.get("value"));
-                return order.toJSON();
+                List<JSONObject> orders = orderDao.getOrder(data.get("arrive_date").toString(), data.get("leave_date").toString(),data.get("customer").toString(), data.get("status_pay").toString(),data.get("id").toString());
+                JSONArray jsons = (JSONArray) JSON.toJSON(orders);
+                m_json.put("orders", jsons);
+                return m_json;
             }else if(action.equals("addOrder")){
                 ///添加订单 {action:addOrder, seller: 456, customer:123, money:555}
                 Order order = new Order();
@@ -40,14 +40,15 @@ public class Execute {
                 m_json.put("status", "success");
                 return m_json;
             }else if(action.equals("updateOrder")){
-                //修改订单 {action: updateOrder, arrive_date:2018-05-26, leave_time:2018-05-28, money:45}
-                orderDao.updateOrder((String)data.get("arrive_date"), (String)data.get("leave_time"),(double)data.get("money"), (long)data.get("id"));
+                //修改订单 {action: updateOrder, arrive_date:2018-05-26, leave_date:2018-05-28, money:45}
+                orderDao.updateOrder(data.get("arrive_date").toString(), data.get("leave_date").toString(),data.get("customer").toString(), data.get("status_pay").toString(),data.get("id").toString());
                 m_json.put("status", "success");
                 return m_json;
             }else if(action.equals("deleteOrder")){
                 //删除订单{action: deleteOrder, id : 1}
-                orderDao.deleteOrder((long)data.get("id"));
+                orderDao.deleteOrder(Long.parseLong(data.get("id").toString()));
             }else if(action.equals("listOrder")){
+                //显示所有订单
                 List<JSONObject> orders = orderDao.listOrder();
                 JSONArray jsons = (JSONArray) JSON.toJSON(orders);
                 m_json.put("orders", jsons);
