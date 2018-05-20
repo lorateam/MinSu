@@ -88,6 +88,30 @@ public class Execute {
                 userDao.update(user);
                 m_json.put("status","success");
                 return m_json;
+            }else if(action.equals("deleteUser")){
+                User user = new User();
+                UserDao userDao = new UserDao();
+                user.setId(Integer.parseInt(data.get("idForDelete").toString()));
+                userDao.delete(user.getId());
+                m_json.put("status","success");
+                return m_json;
+            }else if(action.equals("searchUser")){
+                User user = new User();
+                UserDao userDao = new UserDao();
+                user.setId(Integer.parseInt(data.get("idForSearch").toString()));
+                user = userDao.get(user.getId());
+                System.out.print("execute.java:101---"+user.getAccount());
+                if(user.getAccount() == null)
+                {
+                    m_json.put("status","false");
+                }
+                else{
+                    m_json.put("account", user.getAccount());
+                    m_json.put("name", user.getName());
+                    m_json.put("email", user.getEmail());
+                    m_json.put("status","true");
+                    return m_json;
+                }
             }
             m_json.put("status","没有对应action");
             return m_json;

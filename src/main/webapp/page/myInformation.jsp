@@ -54,7 +54,7 @@
     $(document).ready(function(){
         let formData = new FormData();
         formData.append("action","showMyInfor");
-        formData.append("id","37");
+        formData.append("id","41");
         $.ajax({
             type:"post",
             url:"/gotrip",

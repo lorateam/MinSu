@@ -20,10 +20,6 @@ public class UserDao
             {
                 total=rs.getInt(1);
             }
-        }
-        catch(SQLException e)
-        {
-            e.printStackTrace();
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -45,10 +41,6 @@ public class UserDao
         {
             String sql="delete from user where id="+id;
             s.execute(sql);
-        }
-        catch(SQLException e)
-        {
-            e.printStackTrace();
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -68,10 +60,6 @@ public class UserDao
             ps.setString(4,bean.getEmail());
             ps.setLong(5,bean.getId());
             ps.execute();
-        }
-        catch (SQLException e)
-        {
-            e.printStackTrace();
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -84,6 +72,7 @@ public class UserDao
         {
             String sql=" select * from user where id= "+id;
             ResultSet rs= ps.executeQuery(sql);
+            //TODO:后端未给前端是否查询到的信息，“未查询到”的信息由前端判定
             if(rs.next())
             {
                 String account=rs.getString("account");
@@ -100,11 +89,8 @@ public class UserDao
                 bean.setCreate_time(create_time);
                 //bean.setHead_image(head_image);
                 bean.setEmail(email);
+
             }
-        }
-        catch (SQLException e)
-        {
-            e.printStackTrace();
         } catch (Exception e) {
             e.printStackTrace();
         }
